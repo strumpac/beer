@@ -36,14 +36,32 @@ let menu: Beer[] = [
         name: "Corona",
         price: 4.00    
     }
-]
+];
 
-function mostraMenu(menu: Beer[]){
+showMenu(menu);
+
+function showMenu(menu: Beer[]){
     var list = document.getElementById('beersList');
 
-    list!.innerHTML = ``
+    list!.innerHTML = ``;
 
-    for(var birra of menu){
+    for(var beer of menu){
+        var li = `<li class="list-group-item d-flex justify-content-between allign-item-start">
+                    <div class="ms-2 me-auto"
+                        <div class="fw-bold">
+                            ${beer.name}
+                            <span class="badge text-bg-primary rounded-pill mx-3">0</span>
+                        </diV>
+                        Birra alla spina
+                    </div>
+                    <button type="button" id="addBeer${beer.id}" class="btn" onClick="newOrdination(${beer.id})">
+                        <i class="bi bi-plus-circle h3"></i>
+                    </button>
+                    <button type="button" id="serveBeer${beer.id}" class="btn" onClick="orderCompleted(${beer.id})">
+                        <i class="bi bi-dash-circle h3"></i>
+                    </button>
+                  </li>`;
         
+        list!.innerHTML += li;  
     }
 }
